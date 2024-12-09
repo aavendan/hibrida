@@ -7,11 +7,31 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <!-- <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <input type="file" class="file-upload" onchange="console.log(event.target.files)"> -->
+
+  <div class="container">
+    
+    
+
+    <!-- <ion-input type="file"  accept="image/*" (change)="onFileSelected($event)"></ion-input> -->
+    <ion-button (click)="fileInput.click()">
+      <!-- <ion-title>Cargar archivo</ion-title> -->
+      <ion-icon name="cloud-upload"></ion-icon>
+    </ion-button>
+    <input #fileInput type="file" accept="image/*" (change)="onFileSelected($event)" hidden />
+
+    @if(imageUrl) {
+      <div class="image-preview">
+        <img [src]="imageUrl" alt="Imagen seleccionada" />
+      </div>
+    }
+
+  </div>
+
 </ion-content>
